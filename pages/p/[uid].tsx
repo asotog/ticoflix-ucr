@@ -3,6 +3,7 @@ import { Client } from "../../prismic";
 import Prismic from "prismic-javascript";
 import { useRouter } from 'next/dist/client/router';
 import { RichText } from 'prismic-reactjs';
+import Head from 'next/head';
 
 const Peli = (props: any) => {
     const router = useRouter();
@@ -11,6 +12,9 @@ const Peli = (props: any) => {
     }
     return (
         <div>
+            <Head>
+                <title>{props.data.meta_title} | prop.data.meta_description</title>
+            </Head>
             <RichText render={props.data.title} />
             <RichText render={props.data.synopsis} />
             <span>{props.data.year}</span>
